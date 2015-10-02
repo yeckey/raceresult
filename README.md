@@ -20,7 +20,21 @@ Or install it yourself as:
 
 ## Usage
 
-Not yet usable.
+```ruby
+require 'raceresult'
+
+decoder = RaceResult::Decoder.new('192.168.153.254', port: 3601)
+
+if decoder.has_power?
+  puts decoder.current_time
+end
+
+decoder.start_timing!
+
+decoder.passings.each do |p|
+  puts "#{p.detected_at}: #{p.chip_code}"
+end
+```
 
 ## Development
 
