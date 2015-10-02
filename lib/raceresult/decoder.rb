@@ -18,6 +18,19 @@ module RaceResult
       get_status[:has_power] == "1"
     end
 
+    def antennas
+      get_status[:antennas]
+    end
+
+    def datetime
+      if get_status[:date].start_with?('0')
+        date=Date.today.to_s
+      else
+        date=get_status[:date]
+      end
+        datetime=DateTime.parse(date+' '+get_status[:time])
+    end
+
 
   private
     def connect
