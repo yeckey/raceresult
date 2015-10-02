@@ -38,6 +38,7 @@ module RaceResult
       get_status[:antennas].chars.map do |c|
         c == "1"
       end
+    end
 
     def datetime
       if get_status[:date].start_with?('0')
