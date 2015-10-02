@@ -18,6 +18,28 @@ module RaceResult
       get_status[:has_power] == "1"
     end
 
+    def timing?
+      get_status[:timing_mode] == "1"
+    end
+
+    def file_no
+      get_status[:file_no].to_i
+    end
+
+    def has_gps?
+      get_status[:gps_fix] == "1"
+    end
+
+    def rfid_ok?
+      get_status[:rfid_ok] == "1"
+    end
+
+    def antennas
+      get_status[:antennas].chars.map do |c|
+        c == "1"
+      end
+    end
+
 
   private
     def connect
