@@ -35,9 +35,7 @@ module RaceResult
     end
 
     def antennas
-      get_status[:antennas].chars.map do |c|
-        c == "1"
-      end
+      get_status[:antennas].chars.map { |c| c == "1" }
     end
 
     def datetime
