@@ -38,8 +38,15 @@ module RaceResult
       get_status[:antennas].chars.map do |c|
         c == "1"
       end
-    end
 
+    def datetime
+      if get_status[:date].start_with?('0')
+        date=Date.today.to_s
+      else
+        date=get_status[:date]
+      end
+        datetime=DateTime.parse(date+' '+get_status[:time])
+    end
 
   private
     def connect
