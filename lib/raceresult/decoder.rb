@@ -40,13 +40,11 @@ module RaceResult
       end
     end
 
-    def datetime
-      if get_status[:date].start_with?('0')
-        date=Date.today.to_s
-      else
-        date=get_status[:date]
-      end
-        datetime=DateTime.parse(date+' '+get_status[:time])
+    def current_time
+      status = get_status
+      date = status[:date]
+      date = Date.today.to_s if date.start_with?('0')
+      DateTime.parse(date + ' ' + status[:time])
     end
 
   private
